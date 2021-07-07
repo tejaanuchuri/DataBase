@@ -51,40 +51,46 @@ void CUserInputRecordDlg::OnSqloperationInsertemployeerecord()
 
 void CUserInputRecordDlg::OnBnClickedButtonInsert()
 {
-	CUserInputRecordDlg dlg;
-	CString strID = i_id;
-	AfxMessageBox(strID);
-	CDatabase database;
-	CString sDsn;
-	CString SqlString;
-	//CString strId = L"100";
-	//CString strName = L"Rajitha Lawyer";
-	//CString strAge = L"44";
+	//CUserInputRecordDlg dlg;
+	UpdateData(TRUE); // flow direction database <- ui
+	//if (dlg.DoModal() == IDD_DIALOG_INSERT) {
+		
+		CDatabase database;
+		CString sDsn;
+		CString SqlString;
+		CString strId = i_id;
+		CString strName = i_name;
+		CString strAge = i_age;
+
+		// Build ODBC connection string
+		sDsn.Format(_T("Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=C:\\Users\\admin.teja\\Documents\\AdminApp.accdb;Uid=Admin;Pwd=;"));
+		TRY{
+			// Open the database
+			database.Open(NULL,false,false,sDsn);
+			SqlString = L"INSERT INTO Admin (ID,Name,Age) VALUES (";
+
+
+			CString out = L" ,";
+			CString quo = L"'";
+			SqlString.Append(strId);
+			SqlString.Append(out);
+			SqlString.Append(quo);
+			SqlString.Append(strName);
+			SqlString.Append(quo);
+			SqlString.Append(out);
+			SqlString.Append(strAge);
+			SqlString.Append(_T(")"));
+			AfxMessageBox(SqlString);
+			database.ExecuteSQL(SqlString);
+			AfxMessageBox(L"Database Connected sucessfully...!");
+			// Close the database
+			database.Close();
+		}CATCH(CDBException, e) {
+			// If a database exception occured, show error msg
+			AfxMessageBox(L"Database error: " + e->m_strError);
+		}
+		END_CATCH;
+	//}
 	
-	// Build ODBC connection string
-	sDsn.Format(_T("Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=C:\\Users\\admin.teja\\Documents\\AdminApp.accdb;Uid=Admin;Pwd=;"));
-	TRY{
-		// Open the database
-		database.Open(NULL,false,false,sDsn);
-		SqlString = L"INSERT INTO Admin (ID,Name,Age) VALUES (99,'ramana', 56)";
-		
-		
-		//CString out = L" ,";
-		//SqlString.Append(strId);
-		//SqlString.Append(out);
-		//SqlString.Append(strName);
-		//SqlString.Append(out);
-		//SqlString.Append(strAge);
-		//SqlString.Append(_T(")"));
-		AfxMessageBox(SqlString);
-		database.ExecuteSQL(SqlString);
-		AfxMessageBox(L"Database Connected sucessfully...!");
-		// Close the database
-		database.Close();
-	}CATCH(CDBException, e) {
-		// If a database exception occured, show error msg
-		AfxMessageBox(L"Database error: "+e->m_strError);
-	}
-	END_CATCH;
-	//CUserInputRecordDlg
+		//CUserInputRecordDlg::OnOK;
 }

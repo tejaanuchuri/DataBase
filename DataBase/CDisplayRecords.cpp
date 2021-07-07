@@ -25,8 +25,9 @@ CDisplayRecords::~CDisplayRecords()
 
 void CDisplayRecords::DoDataExchange(CDataExchange* pDX)
 {
-	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_LIST_DATADISPLAY, listdata);
+    CDialogEx::DoDataExchange(pDX);
+    DDX_Control(pDX, IDC_LIST_DATADISPLAY, listdata);
+    DDX_Control(pDX, IDC_LIST_DISPLAY_DATA_FORM_DATABASE, m_list_control_data);
 }
 
 
@@ -48,6 +49,7 @@ void CDisplayRecords::OnBnClickedOk()
 
 void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
 {
+    UpdateData(FALSE);  //data flow direction database -> ui
     CDisplayRecords dlg;
     CDatabase database;
     CString sDsn;
@@ -73,15 +75,15 @@ void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
     // Reset List control if there is any data
     ResetListControl();
     // populate Grids
-    ListView_SetExtendedListViewStyle(listdata, LVS_EX_GRIDLINES);
+    ListView_SetExtendedListViewStyle(m_list_control_data, LVS_EX_GRIDLINES);
 
     // Column width and heading
-    listdata.InsertColumn(0, L"Emp ID", LVCFMT_LEFT, -1, 0);
-    listdata.InsertColumn(1, L"Name", LVCFMT_LEFT, -1, 1);
-    listdata.InsertColumn(2, L"Age", LVCFMT_LEFT, -1, 1);
-    listdata.SetColumnWidth(0, 120);
-    listdata.SetColumnWidth(1, 200);
-    listdata.SetColumnWidth(2, 200);
+    m_list_control_data.InsertColumn(0, L"Emp ID", LVCFMT_LEFT, -1, 0);
+    m_list_control_data.InsertColumn(1, L"Name", LVCFMT_LEFT, -1, 1);
+    m_list_control_data.InsertColumn(2, L"Age", LVCFMT_LEFT, -1, 1);
+    m_list_control_data.SetColumnWidth(0, 120);
+    m_list_control_data.SetColumnWidth(1, 200);
+    m_list_control_data.SetColumnWidth(2, 200);
 
     // Loop through each record
     while (!recset.IsEOF()) {
@@ -91,9 +93,9 @@ void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
         recset.GetFieldValue(L"Age", strAge);
 
         // Insert values into the list control
-        iRec = listdata.InsertItem(0, strID, 0);
-        listdata.SetItemText(0, 1, strName);
-        listdata.SetItemText(0, 2, strAge);
+        iRec = m_list_control_data.InsertItem(0, strID, 0);
+        m_list_control_data.SetItemText(0, 1, strName);
+        m_list_control_data.SetItemText(0, 2, strAge);
 
         // goto next record
         recset.MoveNext();
@@ -111,13 +113,13 @@ void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
     //CDisplayRecords::OnOK();
 }
 void CDisplayRecords::ResetListControl() {
-    listdata.DeleteAllItems();
+    m_list_control_data.DeleteAllItems();
     int iNbrOfColumns=0,i;
-    CHeaderCtrl* pHeader = (CHeaderCtrl*)listdata.GetDlgItem(0);
+    CHeaderCtrl* pHeader = (CHeaderCtrl*)m_list_control_data.GetDlgItem(0);
     if (pHeader) {
         iNbrOfColumns = pHeader->GetItemCount();
     }
     for (i = iNbrOfColumns; i >= 0; i--) {
-        listdata.DeleteColumn(i);
+        m_list_control_data.DeleteColumn(i);
     }
 }

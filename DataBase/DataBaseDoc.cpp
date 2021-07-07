@@ -29,6 +29,7 @@ IMPLEMENT_DYNCREATE(CDataBaseDoc, CDocument)
 BEGIN_MESSAGE_MAP(CDataBaseDoc, CDocument)
 	ON_COMMAND(ID_SQLOPERATION_INSERTEMPLOYEERECORD, &CDataBaseDoc::OnSqloperationInsertemployeerecord)
 	//ON_BN_CLICKED(IDC_BUTTON_INSERT, &CDataBaseDoc::OnBnClickedButtonInsert)
+	ON_COMMAND(ID_SQLOPERATION_TESTDATABASECONNECTION, &CDataBaseDoc::OnSqloperationTestdatabaseconnection)
 END_MESSAGE_MAP()
 
 
@@ -150,6 +151,11 @@ void CDataBaseDoc::OnSqloperationInsertemployeerecord()
 
 
 void CDataBaseDoc::OnBnClickedButtonInsert()
+{
+	
+}
+
+void CDataBaseDoc::OnSqloperationTestdatabaseconnection()
 {
 	
 }

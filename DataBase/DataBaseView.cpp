@@ -140,8 +140,8 @@ void CDataBaseView::OnSqloperationTestdatabaseconnection()
 {
 	
 	AfxMessageBox(L"We are going to Connect To Database...! ");
-	CUserDlg dlg;
-	dlg.DoModal();
+	CUserDlg Dlg;
+	Dlg.DoModal();
 
 }
 
@@ -149,14 +149,16 @@ void CDataBaseView::OnSqloperationTestdatabaseconnection()
 void CDataBaseView::OnSqloperationInsertemployeerecord()
 {
 	CUserInputRecordDlg dlg;
-	dlg.DoModal();
-	//CString d = dlg.i_name;
-	//AfxMessageBox(dlg.i_id);
+	if (dlg.DoModal() == IDOK) {
+
+	}
 }
 
 
 void CDataBaseView::OnSqloperationDisplayallemployeerecords()
 {
-	 CDisplayRecords dlg;
-	dlg.DoModal();
+	 CDisplayRecords _dlg;
+	 if (_dlg.DoModal()==IDOK) {
+
+	}
 }

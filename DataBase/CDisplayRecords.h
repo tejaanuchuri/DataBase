@@ -25,4 +25,5 @@ public:
 	CListCtrl listdata;
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedButtonFetchEmpRecords();
+	CListCtrl m_list_control_data;
 };

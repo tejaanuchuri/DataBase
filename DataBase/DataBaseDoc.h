@@ -48,4 +48,5 @@ protected:
 public:
 	afx_msg void OnSqloperationInsertemployeerecord();
 	afx_msg void OnBnClickedButtonInsert();
+	afx_msg void OnSqloperationTestdatabaseconnection();
 };
