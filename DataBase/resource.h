@@ -18,6 +18,7 @@
 #define IDS_EDIT_MENU                   306
 #define IDD_DIALOG_INSERT               312
 #define IDD_DIALOG_DISPLAY              314
+#define IDD_DIALOG_DATA_DISPLAY         316
 #define IDD_DIALOG                      317
 #define IDC_EDIT_TEXT                   1000
 #define IDC_BUTTON1                     1001
@@ -26,9 +27,11 @@
 #define IDC_EDIT3                       1004
 #define IDC_BUTTON_INSERT               1005
 #define IDC_EDIT_AGE                    1006
-#define IDC_BUTTON_FETCH_RECORDS        1006
-#define IDC_LIST1                       1007
 #define IDC_LIST_DISPLAY                1007
+#define IDC_LIST_DATADISPLAY            1010
+#define IDC_BUTTON_FETCH_RECORDS        1008
+#define IDC_LIST1                       1012
+#define IDC_LIST_DISPLAY_DATA           1011
 #define ID_SQLOPERATION_TESTDATABASECONNECTION 32771
 #define ID_SQLOPERATION_INSERTEMPLOYEERECORD 32772
 #define ID_SQLOPERATION_DISPLAYALLEMPLOYEERECORDS 32773
@@ -37,9 +40,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        316
+#define _APS_NEXT_RESOURCE_VALUE        319
 #define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1008
+#define _APS_NEXT_CONTROL_VALUE         1009
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

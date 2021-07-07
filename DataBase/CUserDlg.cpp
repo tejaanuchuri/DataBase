@@ -40,7 +40,7 @@ END_MESSAGE_MAP()
 
 
 void CUserDlg::OnBnClickedButton1()
-{
+{	
 	CDatabase database;
 	CString sDsn;
 
@@ -56,7 +56,8 @@ void CUserDlg::OnBnClickedButton1()
 		database.Close();
 	}CATCH(CDBException, e) {
 		// If a database exception occured, show error msg
-		AfxMessageBox(L"Database error: ");
+		AfxMessageBox(L"Database error: "+e->m_strError);
 	}
 	END_CATCH;
+	CUserDlg::OnOK();
 }

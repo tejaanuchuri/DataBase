@@ -16,6 +16,7 @@
 #include "CUserDlg.h"
 #include "CUserInputRecordDlg.h"
 #include "CFetchRecords.h"
+#include "CDisplayRecords.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -149,11 +150,13 @@ void CDataBaseView::OnSqloperationInsertemployeerecord()
 {
 	CUserInputRecordDlg dlg;
 	dlg.DoModal();
+	//CString d = dlg.i_name;
+	//AfxMessageBox(dlg.i_id);
 }
 
 
 void CDataBaseView::OnSqloperationDisplayallemployeerecords()
 {
-	CFetchRecords dlg;
+	 CDisplayRecords dlg;
 	dlg.DoModal();
 }

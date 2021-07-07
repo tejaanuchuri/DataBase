@@ -15,6 +15,9 @@
 #include <propkey.h>
 #include "resource.h"
 
+#include "CUserInputRecordDlg.h"
+#include "odbcinst.h"
+#include "afxdb.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -24,6 +27,8 @@
 IMPLEMENT_DYNCREATE(CDataBaseDoc, CDocument)
 
 BEGIN_MESSAGE_MAP(CDataBaseDoc, CDocument)
+	ON_COMMAND(ID_SQLOPERATION_INSERTEMPLOYEERECORD, &CDataBaseDoc::OnSqloperationInsertemployeerecord)
+	//ON_BN_CLICKED(IDC_BUTTON_INSERT, &CDataBaseDoc::OnBnClickedButtonInsert)
 END_MESSAGE_MAP()
 
 
@@ -137,3 +142,14 @@ void CDataBaseDoc::Dump(CDumpContext& dc) const
 
 
 // CDataBaseDoc commands
+
+void CDataBaseDoc::OnSqloperationInsertemployeerecord()
+{	
+	
+}
+
+
+void CDataBaseDoc::OnBnClickedButtonInsert()
+{
+	
+}

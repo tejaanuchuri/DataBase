@@ -22,6 +22,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnSqloperationDisplayallemployeerecords();
-	afx_msg void OnBnClickedButtonFetchRecords();
+	afx_msg void OnBnClickedButtonFetchEmpRecords();
 	CListBox m_ListControl;
+	CListCtrl n_control;
 };
