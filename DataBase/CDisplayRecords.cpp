@@ -78,12 +78,12 @@ void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
     ListView_SetExtendedListViewStyle(m_list_control_data, LVS_EX_GRIDLINES);
 
     // Column width and heading
-    m_list_control_data.InsertColumn(0, L"Emp ID", LVCFMT_LEFT, -1, 0);
-    m_list_control_data.InsertColumn(1, L"Name", LVCFMT_LEFT, -1, 1);
-    m_list_control_data.InsertColumn(2, L"Age", LVCFMT_LEFT, -1, 1);
-    m_list_control_data.SetColumnWidth(0, 120);
-    m_list_control_data.SetColumnWidth(1, 200);
-    m_list_control_data.SetColumnWidth(2, 200);
+    m_list_control_data.InsertColumn(0, _T("Emp ID"), LVCFMT_LEFT,400,400);
+    m_list_control_data.InsertColumn(1, _T("Name"), LVCFMT_CENTER,400,400);
+    m_list_control_data.InsertColumn(2, _T("Age"), LVCFMT_LEFT, 400,400);
+    m_list_control_data.SetColumnWidth(0, 800);
+    m_list_control_data.SetColumnWidth(1, 800);
+    m_list_control_data.SetColumnWidth(2, 900);
 
     // Loop through each record
     while (!recset.IsEOF()) {
@@ -93,16 +93,16 @@ void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
         recset.GetFieldValue(L"Age", strAge);
 
         // Insert values into the list control
-        iRec = m_list_control_data.InsertItem(0, strID, 0);
-        m_list_control_data.SetItemText(0, 1, strName);
-        m_list_control_data.SetItemText(0, 2, strAge);
+        m_list_control_data.InsertItem(0, strID);
+        m_list_control_data.InsertItem( 1, strName);
+        m_list_control_data.InsertItem(2, strAge);
 
         // goto next record
         recset.MoveNext();
     }
 
 
-        AfxMessageBox(L"Database Connected sucessfully...!");
+        //AfxMessageBox(L"Database Connected sucessfully...!");
         // Close the database
         database.Close();
     }CATCH(CDBException, e) {
