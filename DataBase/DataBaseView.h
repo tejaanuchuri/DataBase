@@ -47,6 +47,7 @@ public:
 	afx_msg void OnSqloperationTestdatabaseconnection();
 	afx_msg void OnSqloperationInsertemployeerecord();
 	afx_msg void OnSqloperationDisplayallemployeerecords();
+	afx_msg void OnSqloperationDeleteemployeerecord();
 };
 
 #ifndef _DEBUG  // debug version in DataBaseView.cpp

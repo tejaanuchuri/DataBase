@@ -17,6 +17,7 @@
 #include "CUserInputRecordDlg.h"
 #include "CFetchRecords.h"
 #include "CDisplayRecords.h"
+#include "CUserRecordDelete.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -37,6 +38,7 @@ BEGIN_MESSAGE_MAP(CDataBaseView, CView)
 	ON_COMMAND(ID_SQLOPERATION_TESTDATABASECONNECTION, &CDataBaseView::OnSqloperationTestdatabaseconnection)
 	ON_COMMAND(ID_SQLOPERATION_INSERTEMPLOYEERECORD, &CDataBaseView::OnSqloperationInsertemployeerecord)
 	ON_COMMAND(ID_SQLOPERATION_DISPLAYALLEMPLOYEERECORDS, &CDataBaseView::OnSqloperationDisplayallemployeerecords)
+	ON_COMMAND(ID_SQLOPERATION_DELETEEMPLOYEERECORD, &CDataBaseView::OnSqloperationDeleteemployeerecord)
 END_MESSAGE_MAP()
 
 // CDataBaseView construction/destruction
@@ -68,7 +70,7 @@ void CDataBaseView::OnDraw(CDC* /*pDC*/)
 	if (!pDoc)
 		return;
 
-	// TODO: add draw code for native data here
+// TODO: add draw code for native data here
 }
 
 
@@ -138,7 +140,7 @@ CDataBaseDoc* CDataBaseView::GetDocument() const // non-debug version is inline
 
 void CDataBaseView::OnSqloperationTestdatabaseconnection()
 {
-	
+
 	AfxMessageBox(L"We are going to Connect To Database...! ");
 	CUserDlg Dlg;
 	Dlg.DoModal();
@@ -157,8 +159,17 @@ void CDataBaseView::OnSqloperationInsertemployeerecord()
 
 void CDataBaseView::OnSqloperationDisplayallemployeerecords()
 {
-	 CDisplayRecords _dlg;
-	 if (_dlg.DoModal()==IDOK) {
+	CDisplayRecords _dlg;
+	if (_dlg.DoModal() == IDOK) {
+
+	}
+}
+
+
+void CDataBaseView::OnSqloperationDeleteemployeerecord()
+{
+	CUserRecordDelete _dlg;
+	if(_dlg.DoModal() == IDOK){
 
 	}
 }

@@ -20,6 +20,7 @@
 #define IDD_DIALOG_DISPLAY              314
 #define IDD_DIALOG_DATA_DISPLAY         316
 #define IDD_DIALOG                      317
+#define IDD_DIALOG_DELETE_RECORD        319
 #define IDC_EDIT_TEXT                   1000
 #define IDC_BUTTON1                     1001
 #define IDC_EDIT_ID                     1002
@@ -29,21 +30,25 @@
 #define IDC_EDIT_AGE                    1006
 #define IDC_LIST_DISPLAY                1007
 #define IDC_BUTTON_FETCH_RECORDS        1008
+#define IDC_EDIT_EMPID                  1009
 #define IDC_LIST_DATADISPLAY            1010
+#define IDC_STATIC_ID                   1010
 #define IDC_LIST_DISPLAY_DATA           1011
+#define IDC_BUTTON_DELETE               1011
 #define IDC_LIST1                       1012
 #define IDC_LIST_DISPLAY_DATA_FORM_DATABASE 1012
 #define ID_SQLOPERATION_TESTDATABASECONNECTION 32771
 #define ID_SQLOPERATION_INSERTEMPLOYEERECORD 32772
 #define ID_SQLOPERATION_DISPLAYALLEMPLOYEERECORDS 32773
+#define ID_SQLOPERATION_DELETEEMPLOYEERECORD 32774
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        319
-#define _APS_NEXT_COMMAND_VALUE         32774
-#define _APS_NEXT_CONTROL_VALUE         1009
+#define _APS_NEXT_RESOURCE_VALUE        321
+#define _APS_NEXT_COMMAND_VALUE         32775
+#define _APS_NEXT_CONTROL_VALUE         1012
 #define _APS_NEXT_SYMED_VALUE           310
 #endif
 #endif

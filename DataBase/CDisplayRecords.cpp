@@ -78,12 +78,28 @@ void CDisplayRecords::OnBnClickedButtonFetchEmpRecords()
     ListView_SetExtendedListViewStyle(m_list_control_data, LVS_EX_GRIDLINES);
 
     // Column width and heading
-    m_list_control_data.InsertColumn(0, _T("Emp ID"), LVCFMT_LEFT,400,400);
-    m_list_control_data.InsertColumn(1, _T("Name"), LVCFMT_CENTER,400,400);
-    m_list_control_data.InsertColumn(2, _T("Age"), LVCFMT_LEFT, 400,400);
-    m_list_control_data.SetColumnWidth(0, 800);
-    m_list_control_data.SetColumnWidth(1, 800);
-    m_list_control_data.SetColumnWidth(2, 900);
+    m_list_control_data.SetRedraw(TRUE);
+    m_list_control_data.InsertColumn(0, _T("Emp ID"), LVCFMT_LEFT);
+    m_list_control_data.InsertColumn(1, _T("Name"), LVCFMT_CENTER);
+    m_list_control_data.InsertColumn(2, _T("Age"), LVCFMT_LEFT);
+
+    m_list_control_data.SetColumnWidth(0, LVSCW_AUTOSIZE);
+    int nc = m_list_control_data.GetColumnWidth(0);
+    m_list_control_data.SetColumnWidth(0, LVSCW_AUTOSIZE_USEHEADER);
+    int nh = m_list_control_data.GetColumnWidth(0);
+    m_list_control_data.SetColumnWidth(0, max(nc, nh));
+
+    m_list_control_data.SetColumnWidth(1, LVSCW_AUTOSIZE);
+     nc = m_list_control_data.GetColumnWidth(1);
+    m_list_control_data.SetColumnWidth(1, LVSCW_AUTOSIZE_USEHEADER);
+     nh = m_list_control_data.GetColumnWidth(1);
+    m_list_control_data.SetColumnWidth(1, max(nc, nh));
+
+    m_list_control_data.SetColumnWidth(2, LVSCW_AUTOSIZE);
+     nc = m_list_control_data.GetColumnWidth(2);
+    m_list_control_data.SetColumnWidth(2, LVSCW_AUTOSIZE_USEHEADER);
+     nh = m_list_control_data.GetColumnWidth(1);
+    m_list_control_data.SetColumnWidth(2, max(nc, nh));
 
     // Loop through each record
     while (!recset.IsEOF()) {
