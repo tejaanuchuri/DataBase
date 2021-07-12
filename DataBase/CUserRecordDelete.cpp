@@ -59,9 +59,9 @@ void CUserRecordDelete::OnBnClickedButtonDelete()
 
 
 		SqlString.Append(id);
-		AfxMessageBox(SqlString);
+		//AfxMessageBox(SqlString);
 		database.ExecuteSQL(SqlString);
-		AfxMessageBox(L"Database Connected sucessfully...! and delete record sucessfully...!");
+		AfxMessageBox(L"Delete record sucessfully...!");
 		// Close the database
 		database.Close();
 	}CATCH(CDBException, e) {

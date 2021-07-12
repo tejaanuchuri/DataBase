@@ -26,4 +26,5 @@ public:
 	afx_msg void OnBnClickedOk();
 	afx_msg void OnBnClickedButtonFetchEmpRecords();
 	CListCtrl m_list_control_data;
+	afx_msg void OnLvnItemchangedListDisplayDataFormDatabase(NMHDR* pNMHDR, LRESULT* pResult);
 };

@@ -80,9 +80,9 @@ void CUserInputRecordDlg::OnBnClickedButtonInsert()
 			SqlString.Append(out);
 			SqlString.Append(strAge);
 			SqlString.Append(_T(")"));
-			AfxMessageBox(SqlString);
+			//AfxMessageBox(SqlString);
 			database.ExecuteSQL(SqlString);
-			AfxMessageBox(L"Database Connected sucessfully...!");
+			AfxMessageBox(L"Insert Record sucessfully...!");
 			// Close the database
 			database.Close();
 		}CATCH(CDBException, e) {
@@ -91,6 +91,4 @@ void CUserInputRecordDlg::OnBnClickedButtonInsert()
 		}
 		END_CATCH;
 	//}
-	
-		//CUserInputRecordDlg::OnOK;
 }

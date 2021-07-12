@@ -43,7 +43,7 @@ END_MESSAGE_MAP()
 
 void CFetchRecords::OnSqloperationDisplayallemployeerecords()
 {
-	
+
 }
 
 
@@ -63,38 +63,35 @@ void CFetchRecords::OnBnClickedButtonFetchEmpRecords()
 
 		// Build the SQL statement
 		SqlString = "SELECT ID, Name, Age FROM Admin";
-		
+
 		// Execute the query
 
 		recset.Open(CRecordset::forwardOnly, SqlString, CRecordset::readOnly);
-		
+
 		// populate Grids
-		ListView_SetExtendedListViewStyle(n_control, LVS_EX_GRIDLINES);
+		/*ListView_SetExtendedListViewStyle(n_control, LVS_EX_GRIDLINES);
 
 		// Column width and heading
-		n_control.InsertColumn(0, L"Emp ID", LVCFMT_LEFT, -1, 0);
-		n_control.InsertColumn(0, L"Emp ID", LVCFMT_LEFT, -1, 0);
-		n_control.InsertColumn(1, L"Name", LVCFMT_LEFT, -1, 1);
-		n_control.InsertColumn(2, L"Age", LVCFMT_LEFT, -1, 1);
-		n_control.SetColumnWidth(0, 120);
-		n_control.SetColumnWidth(1, 200);
-		n_control.SetColumnWidth(2, 200);
+		n_control.InsertColumn(0, L"Emp ID", LVCFMT_LEFT);
+		n_control.InsertColumn(1, L"Name", LVCFMT_LEFT);
+		n_control.InsertColumn(2, L"Age", LVCFMT_LEFT);
+
 
 		while (!recset.IsEOF()) {
 			// Copy each column into a variable
-			recset.GetFieldValue(_T("ID"), strID);
-			recset.GetFieldValue(_T("Name"), strName);
-			recset.GetFieldValue(_T("Age"), strAge);
+			recset.GetFieldValue(L"ID", strID);
+			recset.GetFieldValue(L"Name", strName);
+			recset.GetFieldValue(L"Age", strAge);
 
 			// Insert values into the list control
-			iRec = n_control.InsertItem(0, strID, 0);
-			n_control.SetItemText(0, 1, strName);
-			n_control.SetItemText(0, 2, strAge);
+			n_control.InsertItem(0, strID);
+			n_control.InsertItem(1, strName);
+			n_control.InsertItem(2, strAge);
 
 			// goto next record
 			recset.MoveNext();
 		}
-
+		*/
 		AfxMessageBox(L"Database Connected sucessfully...!");
 		// Close the database
 		database.Close();

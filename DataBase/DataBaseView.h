@@ -48,6 +48,8 @@ public:
 	afx_msg void OnSqloperationInsertemployeerecord();
 	afx_msg void OnSqloperationDisplayallemployeerecords();
 	afx_msg void OnSqloperationDeleteemployeerecord();
+	afx_msg void OnSqloperationUpdatetheemployeerecord();
+	afx_msg void OnAdminappEmployeesection();
 };
 
 #ifndef _DEBUG  // debug version in DataBaseView.cpp

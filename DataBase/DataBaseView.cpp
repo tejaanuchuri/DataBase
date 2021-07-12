@@ -18,7 +18,9 @@
 #include "CFetchRecords.h"
 #include "CDisplayRecords.h"
 #include "CUserRecordDelete.h"
-
+#include "CUpdateRecord.h"
+#include "CEMPHomePage.h"
+#include "CDisplayEmpRecords.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -39,6 +41,8 @@ BEGIN_MESSAGE_MAP(CDataBaseView, CView)
 	ON_COMMAND(ID_SQLOPERATION_INSERTEMPLOYEERECORD, &CDataBaseView::OnSqloperationInsertemployeerecord)
 	ON_COMMAND(ID_SQLOPERATION_DISPLAYALLEMPLOYEERECORDS, &CDataBaseView::OnSqloperationDisplayallemployeerecords)
 	ON_COMMAND(ID_SQLOPERATION_DELETEEMPLOYEERECORD, &CDataBaseView::OnSqloperationDeleteemployeerecord)
+	ON_COMMAND(ID_SQLOPERATION_UPDATETHEEMPLOYEERECORD, &CDataBaseView::OnSqloperationUpdatetheemployeerecord)
+	ON_COMMAND(ID_ADMINAPP_EMPLOYEESECTION, &CDataBaseView::OnAdminappEmployeesection)
 END_MESSAGE_MAP()
 
 // CDataBaseView construction/destruction
@@ -70,11 +74,12 @@ void CDataBaseView::OnDraw(CDC* /*pDC*/)
 	if (!pDoc)
 		return;
 
-// TODO: add draw code for native data here
+	// TODO: add draw code for native data here
 }
 
 
 // CDataBaseView printing
+
 
 
 void CDataBaseView::OnFilePrintPreview()
@@ -159,7 +164,7 @@ void CDataBaseView::OnSqloperationInsertemployeerecord()
 
 void CDataBaseView::OnSqloperationDisplayallemployeerecords()
 {
-	CDisplayRecords _dlg;
+	CDisplayEmpRecords _dlg;
 	if (_dlg.DoModal() == IDOK) {
 
 	}
@@ -169,7 +174,25 @@ void CDataBaseView::OnSqloperationDisplayallemployeerecords()
 void CDataBaseView::OnSqloperationDeleteemployeerecord()
 {
 	CUserRecordDelete _dlg;
-	if(_dlg.DoModal() == IDOK){
+	if (_dlg.DoModal() == IDOK) {
+
+	}
+}
+
+
+void CDataBaseView::OnSqloperationUpdatetheemployeerecord()
+{
+	CUpdateRecord dlg;
+	if (dlg.DoModal() == IDOK) {
+
+	}
+}
+
+
+void CDataBaseView::OnAdminappEmployeesection()
+{
+	CEMPHomePage dlg;
+	if (dlg.DoModal() == IDOK) {
 
 	}
 }

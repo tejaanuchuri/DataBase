@@ -45,7 +45,9 @@ void CUserDlg::OnBnClickedButton1()
 	CString sDsn;
 
 	// Build ODBC connection string
-	sDsn.Format(_T("Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=C:\\Users\\admin.teja\\Documents\\AdminApp.accdb;Uid=Admin;Pwd=;"));
+	
+
+	sDsn.Format(_T("Driver={ODBC Driver 17 for SQL Server};Server=FYYP1N2;Dbq=C:\\Program Files\\Microsoft SQL Server\\MSSQL15.MSSQLSERVER\\MSSQL\\DATA\\Employee Admin App.mdf;Trusted_Connection=yes"));
 	TRY{
 		// Open the database
 		database.Open(NULL,false,false,sDsn);

@@ -183,8 +183,12 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CDisplayEmpRecords.h" />
     <ClInclude Include="CDisplayRecords.h" />
+    <ClInclude Include="CEMPHomePage.h" />
+    <ClInclude Include="CEMPINSERTRecord.h" />
     <ClInclude Include="CFetchRecords.h" />
+    <ClInclude Include="CUpdateRecord.h" />
     <ClInclude Include="CUserDlg.h" />
     <ClInclude Include="CUserInputRecordDlg.h" />
     <ClInclude Include="CUserRecordDelete.h" />
@@ -198,8 +202,12 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDisplayEmpRecords.cpp" />
     <ClCompile Include="CDisplayRecords.cpp" />
+    <ClCompile Include="CEMPHomePage.cpp" />
+    <ClCompile Include="CEMPINSERTRecord.cpp" />
     <ClCompile Include="CFetchRecords.cpp" />
+    <ClCompile Include="CUpdateRecord.cpp" />
     <ClCompile Include="CUserDlg.cpp" />
     <ClCompile Include="CUserInputRecordDlg.cpp" />
     <ClCompile Include="CUserRecordDelete.cpp" />
